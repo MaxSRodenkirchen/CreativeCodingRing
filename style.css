@@ -1,0 +1,41 @@
+.suse-mono-regular {
+    font-family: "SUSE Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+body,
+a {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: "SUSE Mono", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 20px 0 0 100px;
+    padding: 0;
+    line-height: 28px;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.links:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.activeLink {
+    color: red;
+}
