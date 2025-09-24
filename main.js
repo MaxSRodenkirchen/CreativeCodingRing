@@ -1,64 +1,34 @@
 let contentDom = [];
 
 ////////////// seperate content array from tags
-let start = [];
-let tools = [];
-let definitions = [];
 
-for (let i = 0; i < content.length; i++) {
-    if (content[i].tags.includes("start")) {
-        start.push(content[i]);
-    }
-    if (content[i].tags.includes("tools")) {
-        tools.push(content[i]);
-    }
-    if (content[i].tags.includes("definitions")) {
-        definitions.push(content[i]);
+for (let j = 0; j < tags[0].length; j++) {
+    for (let i = 0; i < content.length; i++) {
+        if (content[i].tags.some(tag => tag.toLowerCase() === tags[0][j].toLowerCase())) {
+            tags[1][j].push(content[i]);
+        }
     }
 }
-////////////////////////////////////
+// ////////////////////////////////////
+// create sidebar with links
 
 const sidebar = document.createElement("div");
 document.body.appendChild(sidebar);
 sidebar.id = "sidebar";
 
-const startLink = document.createElement("h2");
-startLink.innerText = "Start";
-startLink.classList.add("links");
-startLink.addEventListener("click", function () {
-    clearContentDom();
-    createDoms(start);
-    // currentLink(startLink);
-    setActiveLink(startLink);
+for (let j = 0; j < tags[0].length; j++) {
+    let links = [];
+    links[j] = document.createElement("h2");
+    links[j].innerText = tags[0][j];
+    links[j].classList.add("links");
+    sidebar.appendChild(links[j]);
+    links[j].addEventListener("click", function () {
+        clearContentDom();
+        createDoms(tags[1][j]);
+        setActiveLink(links[j]);
+    });
 
-
-});
-sidebar.appendChild(startLink);
-
-const toolsLink = document.createElement("h2");
-toolsLink.innerText = "Tools";
-toolsLink.classList.add("links");
-toolsLink.addEventListener("click", function () {
-    clearContentDom();
-    createDoms(tools);
-    // currentLink(toolsLink);
-    setActiveLink(toolsLink);
-
-
-});
-sidebar.appendChild(toolsLink);
-
-const defLink = document.createElement("h2");
-defLink.innerText = "Definitions";
-defLink.classList.add("links");
-defLink.addEventListener("click", function () {
-    clearContentDom();
-    createDoms(definitions);
-    //currentLink(defLink);
-    setActiveLink(defLink);
-});
-sidebar.appendChild(defLink);
-
+}
 
 function setActiveLink(activeLink) {
     document.querySelectorAll('.links.activeLink').forEach(link => {
@@ -68,7 +38,6 @@ function setActiveLink(activeLink) {
 }
 
 ////////////////////////////////////
-
 
 
 function clearContentDom() {
