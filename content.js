@@ -1,5 +1,5 @@
 var tags = [
-    ["Start", "Tools", "Definitions", "Live Coding"], //Tags you can use
+    ["Start", "Tools", "Definitions", "Functions", "Showcase", "TEeeeeesting", "HELLO WORLD"], //Tags you can use
     []
 ];
 for (let j = 0; j < tags[0].length; j++) {
@@ -35,6 +35,6 @@ var content = [{
         subtitle: "A livecoding environment for shader graphics",
         url: "https://hydra.ojack.xyz/?sketch_id=example_13",
         img: "https://ojack.xyz/work/hydra/thumb.png",
-        tags: ["tools", "live Coding"]
+        tags: ["tools"]
     }
 ];

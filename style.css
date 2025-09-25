@@ -5,21 +5,65 @@
     font-style: normal;
 }
 
-body,
-a {
-    background-color: #121212;
+body {
+    background-color: white;
     color: #ffffff;
     font-family: "SUSE Mono", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    margin: 20px 0 0 100px;
     padding: 0;
     line-height: 28px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* border: red solid s10px; */
 }
 
-div {
-    margin-bottom: 20px;
+#mainContainer {
+    /* border: yellow solid 10px; */
+    background-color: black;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    gap: 30px;
+
+}
+
+#sidebar {
+    display: flex;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+}
+
+
+
+.links {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-top: black solid 1px;
+
+    padding: 5px;
+    flex: 1;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    /* Verhindert Zeilenumbruch */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Zeigt ... wenn Text zu lang ist */
 }
 
 a {
@@ -30,12 +74,48 @@ a:hover {
     text-decoration: underline;
 }
 
-
+a,
 .links:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
 .activeLink {
-    color: red;
+    color: rgb(255, 255, 255);
+    background-color: black;
+
+}
+
+.contentItem {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border: solid black 1px;
+    /* border-radius: 0 30px 0 0; */
+}
+
+.contentLink {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    height: 100%
+}
+
+.imageContainer {
+    filter: grayscale(100%);
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }

@@ -1,5 +1,5 @@
 let contentDom = [];
-
+const mainContainer = document.getElementById("mainContainer");
 ////////////// seperate content array from tags
 
 for (let j = 0; j < tags[0].length; j++) {
@@ -13,7 +13,8 @@ for (let j = 0; j < tags[0].length; j++) {
 // create sidebar with links
 
 const sidebar = document.createElement("div");
-document.body.appendChild(sidebar);
+
+mainContainer.appendChild(sidebar);
 sidebar.id = "sidebar";
 
 for (let j = 0; j < tags[0].length; j++) {
@@ -56,29 +57,41 @@ function createDoms(objects) {
     for (let i = 0; i < objects.length; i++) {
 
         contentDom[i] = document.createElement("div");
-        document.body.appendChild(contentDom[i]);
+        contentDom[i].classList.add("contentItem");
+        mainContainer.appendChild(contentDom[i]);
 
         const link = document.createElement("a");
         link.href = objects[i].url;
         link.target = "_blank"; // In neuem Tab öffnen
+        link.classList.add("contentLink");
         link.title = "open " + objects[i].url; // Tooltip
         contentDom[i].appendChild(link);
 
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("imageContainer");
+        link.appendChild(imageContainer);
+
+        const textContainer = document.createElement("div");
+        textContainer.classList.add("textContainer");
+        link.appendChild(textContainer);
+
         const title = document.createElement("h3");
         title.innerText = objects[i].title;
-        link.appendChild(title);
+        textContainer.appendChild(title);
 
         const subtitle = document.createElement("p");
         subtitle.innerText = objects[i].subtitle;
-        link.appendChild(subtitle);
+        textContainer.appendChild(subtitle);
+
 
         const image = document.createElement("img");
         image.src = objects[i].img;
         image.alt = objects[i].title;
-        image.width = 50;
-        link.appendChild(image);
+        imageContainer.appendChild(image);
 
     }
 }
+
+
 
 // console.log(tools);

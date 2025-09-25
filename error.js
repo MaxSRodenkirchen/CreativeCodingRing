@@ -16,6 +16,4 @@ for (let i = 0; i < content.length; i++) {
             console.error("You have a typo or a wrong tag at:", content[i].title + ": " + content[i].tags[k]);
         }
     }
-
-
 }
